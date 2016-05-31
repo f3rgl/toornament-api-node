@@ -24,6 +24,9 @@ function getAccessToken(){
         data: "{\"grant_type\": \"client_credentials\", \"client_id\": \"" + config.api.client_id + "\",\"client_secret\": \"" + config.api.client_secret + "\"}",        
         headers: {"Content-type": "application/json"}
         }).on('success', function(data) {
+            accessToken = data.access_token;
+//            accessToken = JSON.parse(data).access_token;
+            console.log("Access Token:" , accessToken);
             console.log("Success:" , data);
         }).on('fail', function(data) {
             console.log("Failed To Get Access Token:", data);
